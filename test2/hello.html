@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simple template</title>
+    <script>
+      var importObject = {}
+      fetch('add.wasm').then(response =>{
+        console.log(response)
+        return response.arrayBuffer()
+      }
+      ).then(bytes =>{
+        console.log(bytes)
+        return WebAssembly.instantiate(bytes, importObject)
+      }
+      ).then(results => {
+        console.log(results.instance.exports._add(1,2))
+        console.log(results.instance.exports._sub(8,2))
+      })
+    </script>
+  </head>
+  <body>
+    
+  </body>
+</html>

@@ -1,0 +1,1 @@
+emcc add.c -o add.wasm -s WASM=1 -O3
